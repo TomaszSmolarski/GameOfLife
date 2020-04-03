@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
+            prefWidth="800.0" style="-fx-background-color: gry;" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <top>
+        <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button mnemonicParsing="false" onAction="#startButtonOnAction" prefHeight="100.0" prefWidth="100.0"
+                        text="START"/>
+                <Button layoutX="200.0" mnemonicParsing="false" onAction="#stopButtonOnAction" prefHeight="100.0"
+                        prefWidth="100.0" text="STOP"/>
+                <Button mnemonicParsing="false" onAction="#continueButtonOnAction" prefHeight="100.0" prefWidth="100.0"
+                        text="CONTINUE"/>
+                <Button mnemonicParsing="false" onAction="#clearButtonOnAction" prefHeight="100.0" prefWidth="100.0"
+                        text="CLEAR"/>
+                <ComboBox fx:id="initialStruct" prefWidth="150.0" promptText="Initial Struct"/>
+            </children>
+        </HBox>
+    </top>
+    <left>
+        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label prefHeight="20.0" prefWidth="100.0" text="Ilość iteracji:"/>
+                <Spinner fx:id="iterationSpinner" editable="true" prefWidth="100.0"/>
+                <Label prefWidth="100.0" text="odstęp czasowy it."/>
+                <Spinner fx:id="delayBetweenIterations" editable="true" prefWidth="100.0"/>
+                <Label prefWidth="100.0" text="szerokość siatki"/>
+                <Spinner fx:id="widthOfGrid" editable="true"/>
+                <Label prefWidth="100.0" text="wysokość siatki"/>
+                <Spinner fx:id="heightOfGrid" editable="true"/>
+                <CheckBox fx:id="infinityLoop" prefWidth="100.0" text="infinity loop"/>
+                <CheckBox fx:id="periodBC" prefWidth="100.0" text="period bc"/>
+            </children>
+        </VBox>
+    </left>
+    <center>
+        <Pane prefHeight="700.0" prefWidth="700.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
+            <children>
+                <Canvas fx:id="canvas" height="600.0" layoutX="50.0" layoutY="50.0" width="600.0"/>
+            </children>
+        </Pane>
+    </center>
+</BorderPane>
