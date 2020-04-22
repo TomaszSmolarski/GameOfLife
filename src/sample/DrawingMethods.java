@@ -14,18 +14,28 @@ class DrawingMethods {
     static Point setRectangleSize(Canvas canvas, int widthSize, int heightSize) {
 
         int rectangleWidth = 0;
-        rectangleWidth = (int) ((canvas.getWidth() / widthSize));
         int rectangleHeight = 0;
-
-        if (heightSize * rectangleWidth <= canvas.getHeight()) {
-            rectangleHeight = rectangleWidth;
-        } else {
+        if(widthSize>=heightSize){
+            rectangleWidth = (int) ((canvas.getWidth() / widthSize));
+            if (heightSize * rectangleWidth <= canvas.getHeight()) {
+                rectangleHeight = rectangleWidth;
+            } else {
+                rectangleHeight = (int) ((canvas.getHeight() / heightSize));
+                if (heightSize * rectangleHeight > canvas.getHeight()) {
+                    rectangleHeight--;
+                }
+            }
+        }else {
             rectangleHeight = (int) ((canvas.getHeight() / heightSize));
-            if (heightSize * rectangleHeight > canvas.getHeight()) {
-                rectangleHeight--;
+            if (widthSize * rectangleHeight <= canvas.getWidth()) {
+                rectangleWidth = rectangleHeight;
+            } else {
+                rectangleWidth = (int) ((canvas.getWidth() / widthSize));
+                if (widthSize * rectangleWidth > canvas.getWidth()) {
+                    rectangleWidth--;
+                }
             }
         }
-
         return new Point(rectangleWidth, rectangleHeight);
     }
 
@@ -77,3 +87,4 @@ class DrawingMethods {
         DrawingMethods.updateGrid(gc, updateBacteriaList, bacteriaArray, rectangleSize);
     }
 }
+
