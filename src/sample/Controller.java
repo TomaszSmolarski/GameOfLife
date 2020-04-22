@@ -222,11 +222,12 @@ public class Controller {
 
     private void defineArray() {
         gc = canvas.getGraphicsContext2D();
+        System.out.println(widthOfGrid.getValue()+"+"+heightOfGrid.getValue());
         rectangleSize = DrawingMethods.setRectangleSize(canvas, widthOfGrid.getValue(), heightOfGrid.getValue());
         bacteriaToUpdateArray = new ArrayList<>();
-        bacteriaArray = new boolean[widthOfGrid.getValue()][heightOfGrid.getValue()];
-        for (int row = 0; row < widthOfGrid.getValue(); row++) {
-            for (int column = 0; column < heightOfGrid.getValue(); column++) {
+        bacteriaArray = new boolean[heightOfGrid.getValue()][widthOfGrid.getValue()];
+        for (int row = 0; row < heightOfGrid.getValue(); row++) {
+            for (int column = 0; column < widthOfGrid.getValue(); column++) {
                 bacteriaArray[row][column] = false;
             }
         }
